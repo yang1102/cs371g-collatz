@@ -11,13 +11,25 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 
-#include "Collatz.h"
-
 using namespace std;
 
 // ------------
 // collatz_read
 // ------------
+
+
+// -------------------------------
+// projects/collatz/RunCollatz.c++
+// Copyright (C) 2016
+// Glenn P. Downing
+// -------------------------------
+
+// --------
+// includes
+// --------
+
+#include <iostream> // cin, cout
+
 
 bool collatz_read (istream& r, int& i, int& j) {
     if (!(r >> i))
@@ -39,7 +51,6 @@ int cycle_length(int num){
     else{
     if (num%2 == 0)
         result = 1+cycle_length(num/2);
-    
     else
         result = 2+cycle_length(num+(num>>1)+1);
     return result;
@@ -54,11 +65,19 @@ int collatz_eval (int i, int j) {
     // <your code>
     assert(i > 0);
     assert(j > 0);
+
+    //check range
     if(i > j){
         int temp = j;
         j = i;
         i = temp;
     }
+
+    //#ifdef
+    if(i < (j/2+1)){
+        i  = j/2 + 1;
+    }
+
     int max_result = 0;
     int result =0;
     while( i <= j){
@@ -90,3 +109,9 @@ void collatz_solve (istream& r, ostream& w) {
     while (collatz_read(r, i, j)) {
         const int v = collatz_eval(i, j);
         collatz_print(w, i, j, v);}}
+
+
+int main () {
+    using namespace std;
+    collatz_solve(cin, cout);
+    return 0;}

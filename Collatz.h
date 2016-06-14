@@ -42,6 +42,16 @@ bool collatz_read (istream& r, int& i, int& j);
 int collatz_eval (int i, int j);
 
 // -------------
+// cycle_length
+// -------------
+
+/**
+ * return the cycle length of num
+ * @param num is int
+ */
+int cycle_length(int num);
+
+// -------------
 // collatz_print
 // -------------
 
@@ -63,5 +73,7 @@ void collatz_print (ostream& w, int i, int j, int v);
  * @param w an ostream
  */
 void collatz_solve (istream& r, ostream& w);
+
+
 
 #endif // Collatz_h
