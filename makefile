@@ -17,20 +17,25 @@ FILES :=                              \
 #    collatz-tests/EID-TestCollatz.c++ \
 #    collatz-tests/EID-TestCollatz.out \
 
-CLANG-FORMAT := clang-format
-CXXFLAGS     := -pedantic -std=c++11 -Wall
-LDFLAGS      := -lgtest -lgtest_main -pthread
-VALGRIND     := valgrind
+CXXFLAGS := -pedantic -std=c++11 -Wall
+LDFLAGS  := -lgtest -lgtest_main -pthread
+VALGRIND := valgrind
 
 ifeq ($(CC), clang)
-    CLANG-CHECK := clang-check
-    CXX         := clang++
+    CLANG-CHECK  := clang-check
+    CXX          := clang++
 else
-    CXX         := g++-4.8
-    GCOV        := gcov-4.8
-    GCOVFLAGS   := -fprofile-arcs -ftest-coverage
-    GPROF       := gprof
-    GPROFFLAGS  := -pg
+    CXX          := g++-4.8
+    GCOV         := gcov-4.8
+    GCOVFLAGS    := -fprofile-arcs -ftest-coverage
+    GPROF        := gprof
+    GPROFFLAGS   := -pg
+endif
+
+ifeq ($(CI), true)
+    CLANG-FORMAT := clang-format
+else
+    CLANG-FORMAT := clang-format-3.4
 endif
 
 collatz-tests:
@@ -67,6 +72,8 @@ endif
 TestCollatz: Collatz.h Collatz.c++ TestCollatz.c++
 ifeq ($(CC), clang)
 	$(CXX) $(CXXFLAGS) Collatz.c++ TestCollatz.c++ -o TestCollatz $(LDFLAGS)
+	-$(CLANG-CHECK) -extra-arg=-std=c++11          Collatz.c++     --
+	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze Collatz.c++     --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          TestCollatz.c++ --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze TestCollatz.c++ --
 else
@@ -101,28 +108,29 @@ check:
     echo "success";
 
 clean:
-	rm -f *.gcda
-	rm -f *.gcno
-	rm -f *.gcov
-	rm -f RunCollatz
-	rm -f RunCollatz.tmp
-	rm -f TestCollatz
-	rm -f TestCollatz.tmp
+	rm -f  *.gcda
+	rm -f  *.gcno
+	rm -f  *.gcov
+	rm -f  *.plist
+	rm -f  Collatz.log
+	rm -f  Doxyfile
+	rm -f  gmon.out
+	rm -f  RunCollatz
+	rm -f  RunCollatz.tmp
+	rm -f  TestCollatz
+	rm -f  TestCollatz.tmp
+	rm -rf collatz-tests
+	rm -rf html
+	rm -rf latex
 
 config:
 	git config -l
 
 format:
-	clang-format -i Collatz.c++
-	clang-format -i Collatz.h
-	clang-format -i RunCollatz.c++
-	clang-format -i TestCollatz.c++
-
-scrub:
-	make clean
-	rm -f  Collatz.log
-	rm -rf html
-	rm -rf latex
+	$(CLANG-FORMAT) -i Collatz.c++
+	$(CLANG-FORMAT) -i Collatz.h
+	$(CLANG-FORMAT) -i RunCollatz.c++
+	$(CLANG-FORMAT) -i TestCollatz.c++
 
 status:
 	make clean
