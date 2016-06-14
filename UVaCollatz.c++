@@ -30,12 +30,45 @@ using namespace std;
 
 #include <iostream> // cin, cout
 
-
 bool collatz_read (istream& r, int& i, int& j) {
     if (!(r >> i))
         return false;
     r >> j;
     return true;}
+
+ 
+
+// ------------
+// collatz_eval
+// ------------
+
+int collatz_eval (int i, int j) {
+    // <your code>
+    assert(i > 0);
+    assert(j > 0);
+
+    //check range
+    if(i > j){
+        int temp = j;
+        j = i;
+        i = temp;
+    }
+
+    if(i < (j/2+1)){
+        i  = j/2 + 1;
+    }
+
+    int max_result = 0;
+    int result =0;
+    while( i <= j){
+        result = cycle_length(i);
+        if (result > max_result){
+            max_result = result;
+        }
+        ++i;
+    }
+    return max_result;
+}
 
 
 // ------------
@@ -55,42 +88,7 @@ int cycle_length(int num){
         result = 2+cycle_length(num+(num>>1)+1);
     return result;
     }
-}    
-
-// ------------
-// collatz_eval
-// ------------
-
-int collatz_eval (int i, int j) {
-    // <your code>
-    assert(i > 0);
-    assert(j > 0);
-
-    //check range
-    if(i > j){
-        int temp = j;
-        j = i;
-        i = temp;
-    }
-
-    //#ifdef
-    if(i < (j/2+1)){
-        i  = j/2 + 1;
-    }
-
-    int max_result = 0;
-    int result =0;
-    while( i <= j){
-        result = cycle_length(i);
-        if (result > max_result){
-            max_result = result;
-        }
-        ++i;
-    }
-
-    return max_result;
-}
-
+}   
 
 // -------------
 // collatz_print

@@ -86,10 +86,15 @@ TEST(CollatzFixture, eval_7) {
 // print
 // -----
 
-TEST(CollatzFixture, print) {
+TEST(CollatzFixture, print_1) {
     ostringstream w;
     collatz_print(w, 1, 10, 20);
     ASSERT_EQ("1 10 20\n", w.str());}
+
+TEST(CollatzFixture, print_2) {
+    ostringstream w;
+    collatz_print(w, 837799, 837799, 525);
+    ASSERT_EQ("837799 837799 525\n", w.str());}
 
 // -----
 // solve
