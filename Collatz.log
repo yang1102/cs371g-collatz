@@ -1,3 +1,9 @@
+commit 112572e7129afa05a5d54a20a312b337c3dedaf9
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 21:02:06 2016 -0500
+
+    Add .gitignore which closes #15, fixes #14 bug, fixes #13 bug and closes #12.
+
 commit b9a4f8b83434fd44d4508c2565370e6fb9a1c2ac
 Author: Shuoyi Yang <yangshy2012@gmail.com>
 Date:   Tue Jun 14 20:06:09 2016 -0500

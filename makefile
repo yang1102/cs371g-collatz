@@ -9,13 +9,11 @@ FILES :=                              \
     RunCollatz.in                     \
     RunCollatz.out                    \
     TestCollatz.c++                   \
-    TestCollatz.out
-
-# uncomment these:
-#    collatz-tests/EID-RunCollatz.in   \
-#    collatz-tests/EID-RunCollatz.out  \
-#    collatz-tests/EID-TestCollatz.c++ \
-#    collatz-tests/EID-TestCollatz.out \
+    TestCollatz.out                   \
+    collatz-tests/sy6955-RunCollatz.in   \
+    collatz-tests/sy6955-RunCollatz.out  \
+    collatz-tests/sy6955-TestCollatz.c++ \
+    collatz-tests/sy6955-TestCollatz.out 
 
 CXXFLAGS := -pedantic -std=c++11 -Wall
 LDFLAGS  := -lgtest -lgtest_main -pthread

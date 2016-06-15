@@ -126,6 +126,14 @@ TEST(CollatzFixture, solve_2) {
   ASSERT_EQ("100 199 125\n200 299 128\n300 399 144\n400 499 142\n", w.str());
 }
 
+TEST(CollatzFixture, solve_3) {
+  istringstream r("1000 1999\n2000 2999\n3000 3999\n4000 4999\n");
+  ostringstream w;
+  collatz_solve(r, w);
+  ASSERT_EQ("1000 1999 182\n2000 2999 217\n3000 3999 238\n4000 4999 215\n",
+            w.str());
+}
+
 /*
 % g++-4.8 -pedantic -std=c++11 -Wall -fprofile-arcs -ftest-coverage Collatz.c++
 TestCollatz.c++ -o TestCollatz -lgtest -lgtest_main -pthread
