@@ -34,4 +34,3 @@ README.md
 *.tmp
 Doxyfile
 RunCollatz
-.coverage

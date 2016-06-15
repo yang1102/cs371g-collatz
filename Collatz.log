@@ -1,3 +1,15 @@
+commit 1e7c5b8a49e8b9b7287b93c712fe92d995d6bb64
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 21:32:41 2016 -0500
+
+    fix .gitignore
+
+commit 3ca1a373b97c208d5a3f3b6a214c4c9efb1e3371
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 21:21:44 2016 -0500
+
+    This fixes #11,and closes #9. Upload makefile
+
 commit 112572e7129afa05a5d54a20a312b337c3dedaf9
 Author: Shuoyi Yang <yangshy2012@gmail.com>
 Date:   Tue Jun 14 21:02:06 2016 -0500
