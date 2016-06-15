@@ -24,6 +24,7 @@ Thumbs.db
 # Project Requairement #
 ########################
 latex/
+TestCollatz
 collatz-tests/
 *.gcda
 *.gcno
@@ -32,4 +33,5 @@ README.md
 .pylintrc
 *.tmp
 Doxyfile
+RunCollatz
 .coverage
