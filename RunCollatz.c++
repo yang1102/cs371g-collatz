@@ -16,13 +16,15 @@
 // main
 // ----
 
-int main () {
-    using namespace std;
-    collatz_solve(cin, cout);
-    return 0;}
+int main() {
+  using namespace std;
+  collatz_solve(cin, cout);
+  return 0;
+}
 
 /*
-% g++-4.8 -pedantic -std=c++11 -Wall -fprofile-arcs -ftest-coverage Collatz.c++ RunCollatz.c++ -o RunCollatz
+% g++-4.8 -pedantic -std=c++11 -Wall -fprofile-arcs -ftest-coverage Collatz.c++
+RunCollatz.c++ -o RunCollatz
 % ./RunCollatz < RunCollatz.in > RunCollatz.tmp
 % diff RunCollatz.tmp RunCollatz.out
 */

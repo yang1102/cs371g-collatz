@@ -1,0 +1,41 @@
+commit b9a4f8b83434fd44d4508c2565370e6fb9a1c2ac
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 20:06:09 2016 -0500
+
+    Update the optimization closes #10, closes 14
+
+commit 89968a1119985575da8a0d5f3574281c295f1bcb
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 18:19:12 2016 -0500
+
+    Add more test closes #7
+
+commit 3d913f9fb36031d1b692a1159debaa12a74dc0f2
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Tue Jun 14 17:36:44 2016 -0500
+
+    This closes #5,closes #6 and fixes #8
+
+commit 21b07690e566976bd247b97517720ca65dff5da1
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Mon Jun 13 22:53:56 2016 -0500
+
+    Modify makefile and successfully build on Travis
+
+commit 5525325b7337f11ae675ee94074897b4ba1df466
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Mon Jun 6 12:48:12 2016 -0500
+
+    Close #4 by cloning the file from public repo and build Travis CI
+
+commit 7156c6149d9ec5691a7f45a2bfbaaa2c03d1aa42
+Author: Shuoyi Yang <yangshy2012@gmail.com>
+Date:   Sun Jun 5 23:51:42 2016 -0500
+
+    create dev brach and add .travis.yml
+
+commit 1af8df8bfa32cdf56d5b5de01fc97c2b02643a72
+Author: yang1102 <yangshy2012@gmail.com>
+Date:   Sun Jun 5 23:47:48 2016 -0500
+
+    Initial commit
